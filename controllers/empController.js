@@ -17,4 +17,6 @@ empController.index=(req,res)=>{
         res.status(500).json({ err, message: err.message });
       });
 }
+
+
 module.exports=empController;
