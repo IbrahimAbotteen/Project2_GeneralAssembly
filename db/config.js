@@ -12,7 +12,7 @@ module.exports = pgp({
   database: process.env.DB_NAME,
   port: 5432,
   host: 'localhost',
-  name:process.env.NAME,
+  user:process.env.NAME,
   password:process.env.PASSWORD
 
 });

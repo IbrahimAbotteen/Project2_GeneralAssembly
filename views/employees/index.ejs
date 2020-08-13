@@ -7,13 +7,17 @@
     <link rel='stylesheet' type='text/css' href='/styles/style.css'>
 </head>
 <body>
-    <div >
+    <div class="pageTitle">
+        <a href="/emp/add">Add New Employee</a>
+        <h2>My Employees:</h2>
        <% for(i of data.emp){ %>
          <div class="data">
-             <h3><%=i.name %></h3>
-             <h3><%=i.age %></h3>
-             <h3><%=i.title %></h3>
-             <h3>******************</h3>
+             <h3><%=i.name%></h3>
+             <a href="/emp/<%=i.id%>">More Info</a>
+             
+             <form method="POST" action="/emp/<%=i.id%>?_mehtod=DELETE">
+                <input type="submit" value="Delete">
+            </form>
          </div>
          <% } %>
     </div>

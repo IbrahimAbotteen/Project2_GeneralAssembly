@@ -5,13 +5,24 @@
 }
 
 .data{
-    font-size: 35px;
-    text-align: center;
+    font-size: 20px;
+    text-align: justify;
     margin-top: 10px;
     border: black solid 3px;
     width: 500px;
     margin:0 auto;
     background-color: chartreuse;
     color:blue ;
+    padding-bottom:20px;
 }
+
+.pageTitle{
+
+    font-size: 35px;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+
+}
+
 

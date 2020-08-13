@@ -1,4 +1,5 @@
 const db=require('../db/config');
+const { one } = require('../db/config');
 
 class Employees{
     constructor(emp){
@@ -17,6 +18,33 @@ class Employees{
             });
         });
     }
+
+    static getById(id) {
+        return db
+          .oneOrNone('SELECT * FROM employees WHERE id = $1', id)
+          .then((emp) => {
+            if (emp) return new this(emp);
+            throw new Error('Employee not found');
+          });
+      }
+
+      save() {
+        return db
+          .one(
+            `
+          INSERT INTO employees (name,age,title)
+          VALUES ($/name/, $/age/, $/title/)
+          RETURNING *`,
+            this
+          )
+          .then((emp) => {
+            return Object.assign(this, emp);
+          });
+      }
+
+      delete(){
+        return db.oneOrNone('DELETE FROM employees WHERE id = $1', this.id);
+      }
 }
 
 module.exports=Employees;
