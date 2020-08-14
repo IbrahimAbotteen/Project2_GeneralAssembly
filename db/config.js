@@ -8,11 +8,14 @@ const options = {
 
 const pgp = require('pg-promise')(options);
 
-module.exports = pgp({
+const envObj={
   database: process.env.DB_NAME,
   port: 5432,
   host: 'localhost',
-  user:process.env.NAME,
-  password:process.env.PASSWORD
+}
 
-});
+if(process.env.NODE_ENV!=='production'){
+  envObj.user=process.env.NAME;
+  envObj.password=process.env.PASSWORD;
+}
+module.exports = pgp(envObj);

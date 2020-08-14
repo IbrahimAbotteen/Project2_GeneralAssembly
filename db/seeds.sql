@@ -39,3 +39,8 @@ VALUES
 ('Bob Crone',35,'Computer Engineer');
 
 
+INSERT INTO users 
+(username,email,password_digest)
+VALUES
+('in4manager','hemaucla@gmail.com',"$2a$10$448F6TLBBLLIOjbD212/.O0TdCj48eJ1Vpf.0G94Pg8cB8Hglrk5O")
+ON CONFLICT DO NOTHING;
