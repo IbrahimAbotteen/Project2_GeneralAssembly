@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href='/styles/style.css'>
+</head>
+<body>
+   <form action="/emp/<%=emp.id%>?_method=PUT" method="POST">
+    <input type="text" name="name" value="<%= emp.name %>" placeholder="Name" />
+    <input type="text" name="age" value="<%= emp.age %>" placeholder="Age"/>
+    <input type="text" name="title" value="<%= emp.title %>" placeholder="Job Title"/>
+    <input type="submit" value="Update"/>
+</form> 
+</body>
+</html>

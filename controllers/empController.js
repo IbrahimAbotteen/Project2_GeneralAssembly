@@ -16,13 +16,11 @@ empController.index=(req,res)=>{
       });
 }
 
-empController.show = (req, res) => {
+empController.show = (req, res,next) => {
     Employees.getById(req.params.id)
       .then((emp) => {
-        res.render('employees/show', {
-          message: 'ok',
-          data: {emp},
-        });
+      res.locals.emp=emp;
+      next();
       })
       .catch((err) => {
         console.log(err);
@@ -44,15 +42,30 @@ empController.create=(req,res)=>{
 }
 
 empController.delete=(req,res)=>{
+    console.log(req.params);
+    console.log(req.body)
     Employees.getById(req.params.id)
     .then((emp) => {
       return emp.delete();
     }).then(()=>{
-        res.redirect('/')
+        res.redirect('/emp')
 }) 
     .catch((err) => {
     console.log(err);
     res.status(500).json({ err, message: err.message });
     });
+}
+
+empController.update=(req,res)=>{
+    Employees.getById(req.params.id)
+    .then((emp)=>{
+        return emp.update(req.body)
+    }).then((updatedEmp)=>{
+        res.redirect(`/emp/`)
+    })   
+    .catch((err) => {
+    console.log(err);
+    res.status(500).json({ err, message: err.message });
+      });
 }
 module.exports=empController;

@@ -45,6 +45,17 @@ class Employees{
       delete(){
         return db.oneOrNone('DELETE FROM employees WHERE id = $1', this.id);
       }
+
+      update(changes){
+          Object.assign(this,changes);
+          return db.oneOrNone(
+              `UPDATE employees SET
+               name = $/name/,
+               age = $/age/,
+               title = $/title/
+               WHERE id = $/id/
+               RETURNING * `, this )
+            Object.assign (this,changes)}
 }
 
 module.exports=Employees;

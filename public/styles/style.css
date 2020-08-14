@@ -11,8 +11,8 @@
     border: black solid 3px;
     width: 500px;
     margin:0 auto;
-    background-color: chartreuse;
-    color:blue ;
+    background-color:gray;
+    color:black ;
     padding-bottom:20px;
 }
 
@@ -22,7 +22,11 @@
     text-align: center;
     padding: 20px;
     margin: 0 auto;
+}
 
+a{
+    display: block;
+    padding-bottom: 10px;
 }
 
 
