@@ -8,14 +8,18 @@ const options = {
 
 const pgp = require('pg-promise')(options);
 
-const envObj={
-  database: process.env.DB_NAME,
-  port: 5432,
-  host: 'localhost',
-}
 
-if(process.env.NODE_ENV!=='production'){
-  envObj.user=process.env.NAME;
-  envObj.password=process.env.PASSWORD;
-}
-module.exports = pgp(envObj);
+function setDatabase() {
+  if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+      return pgp({
+          database: DB_NAME,
+          port: 5432,
+          host: 'localhost',
+          user:process.env.NAME,
+          password:process.env.PASSWORD
+      });
+  } else if (process.env.NODE_ENV === 'production') {
+      return pgp(process.env.DATABASE_URL);
+  };
+};
+module.exports = setDatabase();
