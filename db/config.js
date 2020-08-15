@@ -1,4 +1,4 @@
-
+const DB_NAME='management';
 require('dotenv').config();
 const options = {
   query: (e) => {

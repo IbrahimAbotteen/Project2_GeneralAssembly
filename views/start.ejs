@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' type='text/css' href='/styles/style.css'>
 </head>
 <body>
     <div>
-        <nav class="mainLinks">
-            <a href="/emp">Employees Management</a>
-        </nav>
+        <%- include('./auth/login') -%>
     </div>
-
-    <script src="/src/main.js"></script>
+    <div>
+        <%- include('./auth/register') -%>
+    </div>
+    
 </body>
 </html>
