@@ -2,20 +2,21 @@ const express=require('express');
 const empRouter=express.Router();
 
 const empController=require('../controllers/empController');
+const authHelpers = require('../services/auth/auth-helpers');
 
 
-empRouter.get('/',empController.index);
+empRouter.get('/',authHelpers.loginRequired,empController.index);
 
-empRouter.get('/add',(req,res)=>{
+empRouter.get('/add',authHelpers.loginRequired,(req,res)=>{
     res.render('employees/add');
 });
 
-empRouter.get('/:id/edit',empController.show,(req,res)=>{
+empRouter.get('/:id/edit',authHelpers.loginRequired,empController.show,(req,res)=>{
     res.render('employees/edit',{
         emp:res.locals.emp
     })
 })
-empRouter.get('/:id',empController.show,(req,res)=>{
+empRouter.get('/:id',authHelpers.loginRequired,empController.show,(req,res)=>{
     res.render('employees/show',{
         emp:res.locals.emp
     })
@@ -23,7 +24,7 @@ empRouter.get('/:id',empController.show,(req,res)=>{
 
 
 
-empRouter.post('/',empController.create);
-empRouter.delete('/:id',empController.delete);
-empRouter.put('/:id',empController.update);
+empRouter.post('/',authHelpers.loginRequired,empController.create);
+empRouter.delete('/:id',authHelpers.loginRequired,empController.delete);
+empRouter.put('/:id',authHelpers.loginRequired,empController.update);
 module.exports=empRouter;
