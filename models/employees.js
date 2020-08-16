@@ -7,6 +7,7 @@ class Employees{
         this.name=emp.name;
         this.age=emp.age;
         this.title=emp.title;
+        this.department=emp.department;
     }
 
     static getAll(){
@@ -32,8 +33,8 @@ class Employees{
         return db
           .one(
             `
-          INSERT INTO employees (name,age,title)
-          VALUES ($/name/, $/age/, $/title/)
+          INSERT INTO employees (name,age,title,department)
+          VALUES ($/name/, $/age/, $/title/,$/department/)
           RETURNING *`,
             this
           )
@@ -52,7 +53,8 @@ class Employees{
               `UPDATE employees SET
                name = $/name/,
                age = $/age/,
-               title = $/title/
+               title = $/title/,
+               department=$/department/
                WHERE id = $/id/
                RETURNING * `, this )
             Object.assign (this,changes)}

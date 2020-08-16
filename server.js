@@ -45,6 +45,8 @@ app.get('/', (req, res) => {
     });
   });
 
+  
+
   app.use('/emp',empRouter);
 
   app.use('/auth',authRouter);

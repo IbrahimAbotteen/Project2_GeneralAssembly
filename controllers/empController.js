@@ -32,6 +32,7 @@ empController.create=(req,res)=>{
         name: req.body.name,
         age: req.body.age,
         title: req.body.title,
+        department:req.body.department
       })
       .save().then(()=>{
           res.redirect('/emp')
