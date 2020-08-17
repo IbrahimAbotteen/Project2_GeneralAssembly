@@ -10,9 +10,9 @@ authRouter.get('/login',authHelpers.loginRedirect,(req,res)=>{
 });
 
 authRouter.post('/login',passport.authenticate('local',{
-    successRedirect: '/emp',
+    successRedirect: '/main',
     failureRedirect:'/auth/login',
-    failureFlash:true
+    failureFlash:true,
 }))
 
 authRouter.get('/logout', (req, res) => {
