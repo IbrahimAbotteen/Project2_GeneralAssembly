@@ -43,8 +43,6 @@ empController.create=(req,res)=>{
 }
 
 empController.delete=(req,res)=>{
-    console.log(req.params);
-    console.log(req.body)
     Employees.getById(req.params.id)
     .then((emp) => {
       return emp.delete();

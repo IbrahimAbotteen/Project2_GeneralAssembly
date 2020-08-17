@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="pageTitle">
-        <a href="/emp/add">Add New Employee</a>
+        <a href="/dep/add">Add New Department</a>
         <a class="editLink" href="auth/logout">logout</a>
-        <h2>My Employees:</h2>
-       <% for(i of data.emp){ %>
+        <h2>My Departments:</h2>
+       <% for(i of data.dep){ %>
          <div class="data">
-             <h3><%=i.name%></h3>
-             <a class="infoLink" href="/emp/<%=i.id%>">More Info</a>
-             <a class="editLink" href="/emp/<%=i.id%>/edit">Edit</a>
-             <form method="POST" action="/emp/<%=i.id%>?_method=DELETE">
+             <h3><%=i.department_name%></h3>
+             <a class="infoLink" href="/dep/<%=i.id%>">More Info</a>
+             <a class="editLink" href="/dep/<%=i.id%>/edit">Edit</a>
+             <form method="POST" action="/dep/<%=i.id%>?_method=DELETE">
                 <input type="submit" value="Delete">
             </form>
          </div>

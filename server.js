@@ -7,8 +7,10 @@ const cookieParser=require('cookie-parser');
 const session=require('express-session')
 const passport=require('passport');
 
-const empRouter=require('./routes/empRouter');
 const mainRouter=require('./routes/main-router');
+const empRouter=require('./routes/empRouter');
+const depRouter=require('./routes/depRouter');
+
 
 const authRouter=require('./routes/auth-routes');
 const userRouter=require('./routes/user-routes');
@@ -47,11 +49,8 @@ app.get('/', (req, res) => {
   });
 
   app.use('/main',mainRouter);
-
-  
-
   app.use('/emp',empRouter);
-
+  app.use('/dep',depRouter);
   app.use('/auth',authRouter);
   app.use('/user',userRouter);
 

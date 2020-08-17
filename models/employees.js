@@ -57,7 +57,8 @@ class Employees{
                department=$/department/
                WHERE id = $/id/
                RETURNING * `, this )
-            Object.assign (this,changes)}
+            Object.assign (this,changes)
+          }
 }
 
 module.exports=Employees;
