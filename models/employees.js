@@ -8,6 +8,7 @@ class Employees{
         this.age=emp.age;
         this.title=emp.title;
         this.department=emp.department;
+       
     }
 
     static getAll(){
