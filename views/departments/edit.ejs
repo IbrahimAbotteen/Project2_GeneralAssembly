@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' type='text/css' href='/styles/style.css'>
-</head>
-<body>
-   <form action="/dep/<%=dep.id%>?_method=PUT" method="POST">
+<%- include ('../partials/boilerplate') %>
+   <form class="fill" action="/dep/<%=dep.id%>?_method=PUT" method="POST">
     <input type="text" name="department_name" value="<%= dep.department_name %>" placeholder="Department_Name" />
     <input type="text" name="location" value="<%= dep.location %>" placeholder="Location"/>
     <input type="text" name="email" value="<%= dep.email %>" placeholder="Email"/>
     <input type="submit" value="Update"/>
 </form> 
-</body>
-</html>
+<%- include ('../partials/end') %>

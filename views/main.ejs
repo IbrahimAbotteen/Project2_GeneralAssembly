@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' type='text/css' href='/styles/style.css'>
-</head>
-<body>
+<%- include ('./partials/boilerplate') %>
     <div>
-        <nav class="mainLinks">
-            <a href="/emp">Employees Management</a>
-            <a href="/dep">Departments Management</a>
+        <nav>
+            <a class="mainLinks" href="/emp">Employees Management</a>
+            <a class="mainLinks" href="/dep">Departments Management</a>
+            <a class="mainLinks" href="/reg">Add New User</a>
+            <a class="mainLinks" href="auth/logout">logout</a>
         </nav>
     </div>
 
     <script src="/src/main.js"></script>
-</body>
-</html>
+    <%- include ('./partials/end') %>

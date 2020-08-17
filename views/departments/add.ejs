@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' type='text/css' href='/styles/style.css'>
-</head>
-<body>
+<%- include ('../partials/boilerplate') %>
     <div >
-        <form id="add" action="/dep" method='POST'>
+        <form class="fill" id="add" action="/dep" method='POST'>
             <input type="text" name="department_name" placeholder="Department_Name">
             <input type="text" name="location" placeholder="Location">
             <input type="text" name="email" placeholder="Email">
@@ -16,5 +8,4 @@
             </form>
     </div>
 
-</body>
-</html>
+    <%- include ('../partials/end') %>

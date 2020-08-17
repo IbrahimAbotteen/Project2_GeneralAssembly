@@ -8,6 +8,7 @@ const session=require('express-session')
 const passport=require('passport');
 
 const mainRouter=require('./routes/main-router');
+const regRouter=require('./routes/regRouter')
 const empRouter=require('./routes/empRouter');
 const depRouter=require('./routes/depRouter');
 
@@ -49,6 +50,7 @@ app.get('/', (req, res) => {
   });
 
   app.use('/main',mainRouter);
+  app.use('/reg',regRouter);
   app.use('/emp',empRouter);
   app.use('/dep',depRouter);
   app.use('/auth',authRouter);
